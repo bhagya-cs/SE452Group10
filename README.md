@@ -29,10 +29,10 @@ First we vote, and then roll dice.
 Will meet using Discord and Zoom.   Will meet once a week on tuesday .
 
 ## Meeting Notes
-| #         | Date | Note    | Participants |
-|-----------|------|---------|---------|
-| 1     |   4.4.2023   | We decided our project scope and setup env. | All |
-| 2     |   4.8.2023   | We create basic project, and initial key features for each of the members of the team. | All |
+| #         | Date | Note    | Participants                |
+|-----------|------|---------|-----------------------------|
+| 1     |   4.4.2023   | We decided our project scope and setup env. | Ayyub, Jared, Srinivasa, Bhagya |
+| 2     |   4.8.2023   | We create basic project, and initial key features for each of the members of the team. | Ayyub, Jared, Srinivasa, Bhagya                            |
 
 <br/>
 
