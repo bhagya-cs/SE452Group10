@@ -10,12 +10,13 @@ The administrator will have overarching access as a debugger.
 
 ## Project Members
 
-| Member | Area  | Saying |
-| ----------- | ----------- | --- |
-| Ayyub |  | <i></i>|
-| Jared |   | <b></b>|
-| Bhagya |   | <b></b>|
-| Srinivasa |   | <b></b>|
+| Member    | Area                                  | Saying  |
+|-----------|---------------------------------------|---------|
+| Ayyub     | model/Users (teacher, student, admin) |         |
+| <i></i>   |                                       |         |
+| Jared     |                                       | <b></b> |
+| Bhagya    |                                       | <b></b> |
+| Srinivasa |                                       | <b></b> |
 
 
 <br/>

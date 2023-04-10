@@ -16,6 +16,7 @@ public class Se452Group10Application {
     @GetMapping("/")
     public String index() {
 
-        return "Greetings from Spring Boot!--  Hey DS 22";
+        return "Greetings from Spring Boot!--  Hey DS ";
+
     }
 }
