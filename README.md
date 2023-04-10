@@ -6,17 +6,16 @@ The teacher will post class information, types of classes, and when they happen
 The administrator will have overarching access as a debugger.
 
 <br>
-* Milestone 1: Define the project and base structure and areas where each members will be working on
+* Milestone 1: Define the project and base structure and areas where each member will be working on.
 
 ## Project Members
 
-| Member    | Area                                  | Saying  |
-|-----------|---------------------------------------|---------|
-| Ayyub     | model/Users (teacher, student, admin) |         |
-| <i></i>   |                                       |         |
-| Jared     |                                       | <b></b> |
-| Bhagya    |                                       | <b></b> |
-| Srinivasa |                                       | <b></b> |
+| Member    | Feature                                                    | Note    |
+|-----------|------------------------------------------------------------|---------|
+| Ayyub     | Model/Users (teacher, student, admin)                      | <b></b> |
+| Jared     | Service class(course, account, payment)                    | <b></b> |
+| Bhagya    | Database(class to connect to the repo to get data on user) | <b></b> |
+| Srinivasa | Controller(api)(teacher , student , admin)                 | <b></b> |
 
 
 <br/>
@@ -30,21 +29,19 @@ First we vote, and then roll dice.
 Will meet using Discord and Zoom.   Will meet once a week on tuesday .
 
 ## Meeting Notes
-| #         | Date | Note    | Participants                |
-|-----------|------|---------|-----------------------------|
-| 1     |   4.4.2023   | We decided our project scope and setup env. | Ayyub, Jared, Srinivasa, Bhagya |
-| 2     |   4.8.2023   | We create basic project, and initial key features for each of the members of the team. | Ayyub, Jared, Srinivasa, Bhagya                            |
+| #   | Date     | Note                                                                                   | Participants                    |
+|-----|----------|----------------------------------------------------------------------------------------|---------------------------------|
+| 1   | 4.4.2023 | We decided our project scope and setup env.                                            | Ayyub, Jared, Srinivasa, Bhagya |
+| 2   | 4.8.2023 | We create basic project, and initial key features for each of the members of the team. | Ayyub, Jared, Srinivasa, Bhagya |
 
 <br/>
 
 ## Decision Made
-| # | Area  | Decision | Alternative | Rationale|
-| ----------- | ----------- | --- | --- |--- |
-| 1 | IDE | Use VS Code |IntelliJ | Language independent editor so that it can be used in non java course|
-| 2 | Dependency Management  | Gradle |
-| 3 | Code  | Lombok | Code template code | We have done too many template code and so don't need to learn that|
-| 4 | Configuration Management  | Yaml | Properties | Easier to view groups of configuration and it is different than what we learned in other classes with property files and so using this opporutnity to learn something different|
-
+| #   | Area                     | Decision      | Alternative        | Rationale                                                                                                                                                                       |
+|-----|--------------------------|---------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1   | IDE                      | IntelliJ IDEA | VS Code            | Language independent editor so that it can be used in non java course                                                                                                           |
+| 2   | Dependency Management    | Gradle        | <b></b>            | <b></b>                                                                                                                                                                         |
+| 3   | Code                     | Lombok        | Code template code | We have done too many template code and so don't need to learn that                                                                                                             |
 
 ## Appendix 
 
