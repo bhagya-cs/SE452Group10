@@ -46,7 +46,7 @@ Will meet using Discord and Zoom.   Will meet once a week on tuesday .
 ## Appendix 
 
 Working code sample:
-![img.png](img.png)
+![img.png](src/main/resources/img/img.png)
 
 Application Started:
-![img_1.png](img_1.png)
+![img_1.png](src/main/resources/img/img_1.png)
