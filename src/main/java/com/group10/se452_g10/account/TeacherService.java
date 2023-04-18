@@ -2,7 +2,11 @@ package com.group10.se452_g10.account;
 
 import java.util.List;
 
+import com.group10.se452_g10.course.Course;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,10 +21,16 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class TeacherService {
 
+
+
+    @Autowired
     private TeacherRepo repo;
 
 
     @GetMapping
+    @Operation(summary = "Returns all the Teachers in the database")
+    @ApiResponse(responseCode = "200", description = "valid response",
+            content = {@Content(mediaType="application/json", schema=@Schema(implementation= Teacher.class))})
     public List<Teacher> list(){
         log.traceEntry("Enter list");
         var retval = repo.findAll();
