@@ -2,6 +2,10 @@ package com.group10.se452_g10.account;
 
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +24,9 @@ public class StudentService {
     private StudentRepo repo;
 
     @GetMapping
+    @Operation(summary = "Returns all the Students in the database")
+    @ApiResponse(responseCode = "200", description = "valid response",
+            content = {@Content(mediaType="application/json", schema=@Schema(implementation= Student.class))})
     public List<Student> list(){
         log.traceEntry("Enter list");
         var retval = repo.findAll();
