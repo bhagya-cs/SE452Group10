@@ -19,15 +19,15 @@ public class PaymentMethod {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long paymentId;
+    private long id;
 
     private long studentId;
 
-    private Date paymentDate;
+    private Date date;
 
-    private float paymentAmount;
+    private float amount;
 
-    private String paymentMethod;
+    private String TypeOfMethod;
 
     private String transactionId;
 
