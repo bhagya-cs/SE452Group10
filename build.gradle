@@ -38,15 +38,7 @@ dependencies {
 
 }
 
-processResources {
-    from('src/main/resources') {
-        include '**/*.yml'
-        exclude 'application.yml'
-    }
-    from('src/main/resources') {
-        include 'application.yml'
-    }
-}
+
 
 
 tasks.named('test') {
