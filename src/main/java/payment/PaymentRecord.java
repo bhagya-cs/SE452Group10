@@ -17,5 +17,4 @@ public class PaymentRecord {
 
     private Float courseFee;
 
-
 }
