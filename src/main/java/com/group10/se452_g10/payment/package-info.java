@@ -7,4 +7,4 @@
  * @author Pat
  */
 
-package payment;
+package com.group10.se452_g10.payment;
