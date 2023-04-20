@@ -2,14 +2,14 @@ package com.group10.se452_g10.payment;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "payment")
+@RequestMapping("payments")
 public class PaymentMethodController {
 
     @Autowired
@@ -21,5 +21,23 @@ public class PaymentMethodController {
         return paymentMethodRepository.findAll();
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<PaymentMethod> getPaymentMethodById(@PathVariable(value = "id") Long paymentMethodId) {
+        PaymentMethod paymentMethod = paymentMethodRepository.findById(paymentMethodId)
+                .orElseThrow(() -> new Message("PaymentMethod not found for this id :: " + paymentMethodId));
+        return ResponseEntity.ok().body(paymentMethod);
+    }
+
+
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public static class Message extends RuntimeException{
+        public Message(String s) {
+            super(s);
+        }
+
+
+
+    }
 
 }
