@@ -2,6 +2,9 @@
 //
 //
 //import org.springframework.stereotype.Service;
+//import org.springframework.web.bind.annotation.GetMapping;
+//
+//import java.awt.*;
 //
 //@Service
 //public class PaymentMethodService {
@@ -12,10 +15,7 @@
 //        this.paymentMethodRepository = paymentMethodRepository;
 //    }
 //
-//    public PaymentMethod createPayment(PaymentMethod paymentMethod){
 //
-//        PaymentMethod paymentMethod1 = new PaymentMethod(paymentMethod.getId()){
-//
-//        }
-//    }
+//    @GetMapping("/payment-methods")
+//    public List<PaymentMethod> ge
 //}

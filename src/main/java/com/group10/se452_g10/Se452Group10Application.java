@@ -18,7 +18,8 @@ public class Se452Group10Application {
     private String env;
 
     public static void main(String[] args) {
-        SpringApplication.run(Se452Group10Application.class, args);
+        SpringApplication.run(Se452Group10Application.class, args
+        );
     }
 
     @GetMapping("/")
