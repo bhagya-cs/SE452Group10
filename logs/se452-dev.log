@@ -908,3 +908,91 @@ INSERT INTO payment_record (course_id,course_fee) VALUES(153,3760) [23505-214]
 2023-04-19 19:54:45,656 INFO  [restartedMain] com.group10.se452_g10.Se452Group10Application : Info
 2023-04-19 19:54:45,659 WARN  [restartedMain] com.group10.se452_g10.Se452Group10Application : Warning
 2023-04-19 19:54:45,659 ERROR [restartedMain] com.group10.se452_g10.Se452Group10Application : Error
+2023-04-19 19:57:26,157 INFO  [restartedMain] com.group10.se452_g10.Se452Group10Application : Starting Se452Group10Application using Java 17.0.2 with PID 34854 (/Users/srinivas/IdeaProjects/SE452Group10/build/classes/java/main started by srinivas in /Users/srinivas/IdeaProjects/SE452Group10)
+2023-04-19 19:57:26,169 INFO  [restartedMain] com.group10.se452_g10.Se452Group10Application : The following 1 profile is active: "dev"
+2023-04-19 19:57:29,599 INFO  [restartedMain] org.apache.catalina.core.StandardService : Starting service [Tomcat]
+2023-04-19 19:57:29,599 INFO  [restartedMain] org.apache.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-04-19 19:57:29,707 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2023-04-19 19:57:30,092 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2023-04-19 19:57:30,269 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:devDB user=SA
+2023-04-19 19:57:30,271 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2023-04-19 19:57:30,354 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-19 19:57:30,465 INFO  [restartedMain] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-19 19:57:30,832 INFO  [restartedMain] SQL dialect : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-04-19 19:57:31,113 ERROR [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Unable to create unique key constraint (course_id, trans_id) on table 'payment_record' since the column 'trans_id' was not found (specify the correct column name, which depends on the naming strategy, and may not be the same as the entity property name)
+2023-04-19 19:57:31,345 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2023-04-19 19:57:31,365 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+2023-04-19 19:57:31,386 INFO  [restartedMain] org.apache.catalina.core.StandardService : Stopping service [Tomcat]
+2023-04-19 19:57:31,492 ERROR [restartedMain] org.springframework.boot.SpringApplication : Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create unique key constraint (course_id, trans_id) on table 'payment_record' since the column 'trans_id' was not found (specify the correct column name, which depends on the naming strategy, and may not be the same as the entity property name)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1132)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:907)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293)
+	at com.group10.se452_g10.Se452Group10Application.main(Se452Group10Application.java:21)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.hibernate.AnnotationException: Unable to create unique key constraint (course_id, trans_id) on table 'payment_record' since the column 'trans_id' was not found (specify the correct column name, which depends on the naming strategy, and may not be the same as the entity property name)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildUniqueKeyFromColumnNames(InFlightMetadataCollectorImpl.java:2187)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildUniqueKeyFromColumnNames(InFlightMetadataCollectorImpl.java:2048)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processUniqueConstraintHolders(InFlightMetadataCollectorImpl.java:2036)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1745)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:300)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1348)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1419)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	... 21 common frames omitted
+2023-04-19 19:58:05,227 INFO  [restartedMain] com.group10.se452_g10.Se452Group10Application : Starting Se452Group10Application using Java 17.0.2 with PID 34869 (/Users/srinivas/IdeaProjects/SE452Group10/build/classes/java/main started by srinivas in /Users/srinivas/IdeaProjects/SE452Group10)
+2023-04-19 19:58:05,232 INFO  [restartedMain] com.group10.se452_g10.Se452Group10Application : The following 1 profile is active: "dev"
+2023-04-19 19:58:08,836 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2023-04-19 19:58:08,986 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:devDB user=SA
+2023-04-19 19:58:08,989 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2023-04-19 19:58:09,060 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-19 19:58:09,144 INFO  [restartedMain] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-19 19:58:09,470 INFO  [restartedMain] SQL dialect : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-04-19 19:58:10,428 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-19 19:58:12,225 INFO  [restartedMain] com.group10.se452_g10.Se452Group10Application : Started Se452Group10Application in 7.817 seconds (process running for 8.559)
+2023-04-19 19:58:12,673 INFO  [SpringApplicationShutdownHook] org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-04-19 19:58:12,829 INFO  [restartedMain] com.group10.se452_g10.Se452Group10Application : Info
+2023-04-19 19:58:12,829 WARN  [restartedMain] com.group10.se452_g10.Se452Group10Application : Warning
+2023-04-19 19:58:12,829 ERROR [restartedMain] com.group10.se452_g10.Se452Group10Application : Error
+2023-04-19 19:58:12,932 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2023-04-19 19:58:12,959 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+2023-04-19 19:58:34,812 INFO  [restartedMain] com.group10.se452_g10.Se452Group10Application : Starting Se452Group10Application using Java 17.0.2 with PID 34892 (/Users/srinivas/IdeaProjects/SE452Group10/build/classes/java/main started by srinivas in /Users/srinivas/IdeaProjects/SE452Group10)
+2023-04-19 19:58:34,817 INFO  [restartedMain] com.group10.se452_g10.Se452Group10Application : The following 1 profile is active: "dev"
+2023-04-19 19:58:37,821 INFO  [restartedMain] org.apache.catalina.core.StandardService : Starting service [Tomcat]
+2023-04-19 19:58:37,822 INFO  [restartedMain] org.apache.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-04-19 19:58:37,922 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2023-04-19 19:58:38,265 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2023-04-19 19:58:38,411 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:devDB user=SA
+2023-04-19 19:58:38,413 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2023-04-19 19:58:38,489 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-19 19:58:38,580 INFO  [restartedMain] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-19 19:58:38,888 INFO  [restartedMain] SQL dialect : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-04-19 19:58:39,713 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-19 19:58:40,965 INFO  [restartedMain] com.group10.se452_g10.Se452Group10Application : Started Se452Group10Application in 6.832 seconds (process running for 7.575)
+2023-04-19 19:58:41,111 INFO  [restartedMain] com.group10.se452_g10.Se452Group10Application : Info
+2023-04-19 19:58:41,114 WARN  [restartedMain] com.group10.se452_g10.Se452Group10Application : Warning
+2023-04-19 19:58:41,114 ERROR [restartedMain] com.group10.se452_g10.Se452Group10Application : Error
+2023-04-19 20:06:31,249 WARN  [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m52s693ms).
