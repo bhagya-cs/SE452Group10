@@ -22,9 +22,9 @@ public class PaymentMethodController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<PaymentMethod> getPaymentMethodById(@PathVariable(value = "id") Long paymentMethodId) {
-        PaymentMethod paymentMethod = paymentMethodRepository.findById(paymentMethodId)
-                .orElseThrow(() -> new Message("PaymentMethod not found for this id :: " + paymentMethodId));
+    public ResponseEntity<PaymentMethod> getPaymentMethodById(@PathVariable(value = "id") Long id) {
+        PaymentMethod paymentMethod = paymentMethodRepository.findById(id)
+                .orElseThrow(() -> new Message("PaymentMethod not found for this id :: " + id));
         return ResponseEntity.ok().body(paymentMethod);
     }
 
