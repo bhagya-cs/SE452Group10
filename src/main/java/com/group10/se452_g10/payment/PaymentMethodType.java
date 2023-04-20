@@ -5,13 +5,13 @@ public enum PaymentMethodType {
     DEBIT_CARD("Debit Card"),
     NET_BANKING("Net Banking");
 
-    private String description;
+    private final String method;
 
-    PaymentMethodType(String description) {
-        this.description = description;
+    PaymentMethodType(String method) {
+        this.method = method;
     }
 
-    public String getDescription() {
-        return description;
+    public final String getMethod() {
+        return method;
     }
 }
