@@ -2,6 +2,7 @@ package com.group10.se452_g10.payment;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,7 @@ public class PaymentMethodController {
     private PaymentMethodRepository paymentMethodRepository;
 
 
+    @GetMapping
     public List<PaymentMethod> getAllPayments(){
         return paymentMethodRepository.findAll();
     }
