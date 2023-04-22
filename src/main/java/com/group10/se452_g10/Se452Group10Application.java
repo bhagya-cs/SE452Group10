@@ -19,6 +19,7 @@ public class Se452Group10Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Se452Group10Application.class, args
+
         );
     }
 

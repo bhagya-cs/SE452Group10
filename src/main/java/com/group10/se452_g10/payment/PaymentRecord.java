@@ -16,12 +16,11 @@ import lombok.NonNull;
 public class PaymentRecord {
 
     @Id
-    @NonNull
-    @Column(name = "course_id")
+    @Column(name = "course_id",unique = true)
     private Long courseId;
 
     @NonNull
-    @Column(name = "course_fee")
+    @Column(name = "course_fee",nullable = false)
     private Float courseFee;
 
 }

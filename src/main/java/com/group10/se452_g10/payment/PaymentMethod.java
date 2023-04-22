@@ -24,31 +24,50 @@ public class PaymentMethod {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "stu_id")
+    @Column(name = "stu_id", nullable = false, unique = true)
     @NonNull
     private Long studentId;
 
 
     @NonNull
-    @Column(name = "payment_date")
+    @Column(name = "payment_date", nullable = false)
     @Temporal(TemporalType.DATE)
     private LocalDate date;
 
     @NonNull
-    @Column(name = "amount")
+    @Column(name = "amount", nullable = false)
     private Float amount;
 
     @NonNull
 //    @Enumerated(EnumType.ORDINAL)
-    @Column(name = "method")
-    private String TypeOfMethod;
+    @Column(name = "method", nullable = false)
+    private String typeOfMethod;
 
     @NonNull
-    @Column(name = "trans_id")
+    @Column(name = "trans_id", nullable = false, unique = true)
     private String transactionId;
 
 
     private String remarks;
+
+    public PaymentMethod(PaymentMethodRequest paymentMethodRequest){
+
+        this.studentId = paymentMethodRequest.getStudentId();
+        this.amount = paymentMethodRequest.getAmount();
+        this.typeOfMethod = paymentMethodRequest.getTypeOfMethod();
+        this.transactionId = paymentMethodRequest.getTransactionId();
+        this.date = LocalDate.now();
+    }
+
+
+//    public PaymentMethod(PaymentMethodRequest paymentMethodRequest){
+//
+//        this.studentId = Long.valueOf(121212);
+//        this.amount = Float.valueOf(232323);
+//        this.typeOfMethod = "cc";
+//        this.transactionId = "sdn";
+//        this.date = LocalDate.now();
+//    }
 
 
 }
