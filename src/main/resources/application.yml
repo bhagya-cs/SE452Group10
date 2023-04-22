@@ -7,7 +7,6 @@ app:
     license:  Apache 2.0
     url: http://springdoc.org
 
-
 spring:
   profiles:
     active: dev

@@ -18,9 +18,6 @@ logging:
     org.springframework: ERROR
     edu.group10.se452_g10: DEBUG
 
-
-
-
 spring:
   jpa:
     generate-ddl: true
