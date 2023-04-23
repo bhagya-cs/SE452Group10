@@ -86,6 +86,7 @@ public class TeacherMethodTest {
         long count5 = teacherRepo.count();
         assertEquals(count5, 0);
 
+
     }
 
     @Test
