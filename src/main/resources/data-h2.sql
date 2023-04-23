@@ -11,4 +11,5 @@ VALUES (23,12456, '2022-05-19', 1244.0, 'credit_car', '123455454567890', 'Paymen
 --PAYMENT RECORDS :
 INSERT INTO payment_record (course_id,course_fee) VALUES(123,3500);
 INSERT INTO payment_record (course_id,course_fee) VALUES(153,4567);
+
 --INSERT INTO payment_record (course_id,course_fee) VALUES(153,3760);
