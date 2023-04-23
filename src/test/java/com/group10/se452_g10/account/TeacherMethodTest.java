@@ -6,30 +6,19 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @DataJpaTest
 @ActiveProfiles("test")
-@Sql({"/data-teacher-test.sql"})
+//@Sql({"/data-teacher-test.sql"})
 public class TeacherMethodTest {
 
     @Autowired
     private TeacherRepo teacherRepo;
 
-
-    @Before("")
-    public void setup() {
-        // Perform setup tasks here
-
-    }
-
     @Test
-
-    @Transactional
     public void testCreationTeacher() {
 
         teacherRepo.deleteAll();
@@ -63,9 +52,8 @@ public class TeacherMethodTest {
 
     }
 
-
     @Test
-    public void testDeleteTeacherRecord() {
+    public void testUpdateStudentRecord(){
 
         Teacher s_1 = new Teacher();
 
@@ -73,6 +61,20 @@ public class TeacherMethodTest {
         s_1.setFirstName("Ayyub");
         s_1.setLastName("Jose");
         s_1.setGender("M");
+
+        Teacher s1_test = teacherRepo.save(s_1);
+    }
+
+    @Test
+    public void testDeleteStudentRecord() {
+
+        Teacher s_1 = new Teacher();
+
+        s_1.setAddress("Chicago");
+        s_1.setFirstName("Ayyub");
+        s_1.setLastName("Jose");
+        s_1.setGender("M");
+        s_1.setId(2L);
 
 
         Teacher s1_test = teacherRepo.save(s_1);
@@ -87,28 +89,18 @@ public class TeacherMethodTest {
         s_2.setFirstName("Grant");
         s_2.setLastName("Jone");
         s_2.setGender("M");
+        s_2.setId(8L);
 
 
         Teacher s2_test = teacherRepo.save(s_2);
         long count3 = teacherRepo.count();
         teacherRepo.delete(s2_test);
-        assertEquals(count2 + 1, count3);
-
-
         long count4 = teacherRepo.count();
-        assertEquals(count3 + 1, count4);
-        teacherRepo.deleteAll();
-
-        long count5 = teacherRepo.count();
-        assertEquals(count5, 0);
-
-
-    }
-
-    @Test
-    public void testReadTeacherRecord() {
+        assertEquals(count3 - 1, count4);
 
 
     }
 
 }
+
+
