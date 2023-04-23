@@ -6,4 +6,7 @@ import lombok.Data;
 
 @Entity(name = "students")
 public class Student extends User {
+
+
+
 }
