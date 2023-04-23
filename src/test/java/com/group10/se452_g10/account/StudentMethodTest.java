@@ -59,59 +59,58 @@ public class StudentMethodTest {
         assertEquals(count_one + 1, count_two);
 
     }
+
+    @Test
+    public void testUpdateStudentRecord(){
+
+        Student s_1 = new Student();
+
+        s_1.setAddress("Chicago");
+        s_1.setFirstName("Ayyub");
+        s_1.setLastName("Jose");
+        s_1.setGender("M");
+
+
+
+        Student s1_test = studentRepo.save(s_1);
+
+    }
 //
-//    @Test
-//    public void testUpdateStudentRecord(){
-//
-//        Student s_1 = new Student();
-//
-//        s_1.setAddress("Chicago");
-//        s_1.setFirstName("Ayyub");
-//        s_1.setLastName("Jose");
-//        s_1.setGender("M");
-//
-//        Student s1_test = studentRepo.save(s_1);
-//    }
-//
-//    @Test
-//    public void testDeleteStudentRecord() {
-//
-//        Student s_1 = new Student();
-//
-//        s_1.setAddress("Chicago");
-//        s_1.setFirstName("Ayyub");
-//        s_1.setLastName("Jose");
-//        s_1.setGender("M");
-//
-//
-//        Student s1_test = studentRepo.save(s_1);
-//        long count1 = studentRepo.count();
-//        studentRepo.delete(s1_test);
-//        long count2 = studentRepo.count();
-//        assertEquals(count1 - 1, count2);
-//
-//
-//        Student s_2 = new Student();
-//        s_2.setAddress("France");
-//        s_2.setFirstName("Grant");
-//        s_2.setLastName("Jone");
-//        s_2.setGender("M");
-//
-//
-//        Student s2_test = studentRepo.save(s_2);
-//        long count3 = studentRepo.count();
-//        studentRepo.delete(s2_test);
-//        assertEquals(count2 + 1, count3);
-//
-//
-//        long count4 = studentRepo.count();
-//        assertEquals(count3 + 1, count4);
-//        studentRepo.deleteAll();
-//
-//        long count5 = studentRepo.count();
-//        assertEquals(count5, 0);
-//
-//    }
+    @Test
+    public void testDeleteStudentRecord() {
+
+        Student s_1 = new Student();
+
+        s_1.setAddress("Chicago");
+        s_1.setFirstName("Ayyub");
+        s_1.setLastName("Jose");
+        s_1.setGender("M");
+        s_1.setId(2L);
+
+
+        Student s1_test = studentRepo.save(s_1);
+        long count1 = studentRepo.count();
+        studentRepo.delete(s1_test);
+        long count2 = studentRepo.count();
+        assertEquals(count1 - 1, count2);
+
+
+        Student s_2 = new Student();
+        s_2.setAddress("France");
+        s_2.setFirstName("Grant");
+        s_2.setLastName("Jone");
+        s_2.setGender("M");
+        s_2.setId(8L);
+
+
+        Student s2_test = studentRepo.save(s_2);
+        long count3 = studentRepo.count();
+        studentRepo.delete(s2_test);
+        long count4 = studentRepo.count();
+        assertEquals(count3 - 1, count4);
+
+
+    }
 //
 //    @Test
 //    public void testReadStudentRecord() {
