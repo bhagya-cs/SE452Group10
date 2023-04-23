@@ -1,6 +1,5 @@
 package com.group10.se452_g10.course;
 
-import com.group10.se452_g10.account.StudentRepo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -20,8 +19,6 @@ public class GpaService {
 
     @Autowired
     private GpaRepository gpaRepository;
-    @Autowired
-    private StudentRepo studentRepository;
 
     @GetMapping
     @Operation(summary = "Returns all the GPA in the database")
