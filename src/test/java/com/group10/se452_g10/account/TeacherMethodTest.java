@@ -23,7 +23,7 @@ public class TeacherMethodTest {
     }
 
     @Test
-    public void testCreationStudent() {
+    public void testCreationTeacher() {
 
         Teacher s_1 = new Teacher();
         Teacher s_2 = new Teacher();
@@ -44,6 +44,53 @@ public class TeacherMethodTest {
         assertNotNull(s1_test.getGender());
         var afterCount = teacherRepo.count();
         assertEquals(beforeCount + 1, afterCount);
+
+    }
+
+
+    @Test
+    public void testDeleteTeacherRecord() {
+
+        Teacher s_1 = new Teacher();
+
+        s_1.setAddress("Chicago");
+        s_1.setFirstName("Ayyub");
+        s_1.setLastName("Jose");
+        s_1.setGender("M");
+
+
+        Teacher s1_test = teacherRepo.save(s_1);
+        long count1 = teacherRepo.count();
+        teacherRepo.delete(s1_test);
+        long count2 = teacherRepo.count();
+        assertEquals(count1 - 1, count2);
+
+
+        Teacher s_2 = new Teacher();
+        s_2.setAddress("France");
+        s_2.setFirstName("Grant");
+        s_2.setLastName("Jone");
+        s_2.setGender("M");
+
+
+        Teacher s2_test = teacherRepo.save(s_2);
+        long count3 = teacherRepo.count();
+        teacherRepo.delete(s2_test);
+        assertEquals(count2 + 1, count3);
+
+
+        long count4 = teacherRepo.count();
+        assertEquals(count3 + 1, count4);
+        teacherRepo.deleteAll();
+
+        long count5 = teacherRepo.count();
+        assertEquals(count5, 0);
+
+    }
+
+    @Test
+    public void testReadTeacherRecord() {
+
 
     }
 
