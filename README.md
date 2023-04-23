@@ -48,14 +48,14 @@ Will meet using Discord and Zoom. Will meet once a week on tuesday .
 
 ## Decision Made
 
-| # | Area                  | Decision      | Alternative            | Rationale                                                            |
-|---|-----------------------|---------------|------------------------|----------------------------------------------------------------------|
+| # | Area                  | Decision      | Alternative            | Rationale                                                             |
+|---|-----------------------|---------------|------------------------|-----------------------------------------------------------------------|
 | 1 | IDE                   | IntelliJ IDEA | VS Code                | Language independent editor so that it can be used in non java course |
-| 2 | Dependency Management | Gradle        | Maven                  | familiarity                                                          |
-| 3 | Code                  | Lombok        | Code template code     | We have done too many template code and so don't need to learn that  |
-| 3 | Communication Channel | Zoom          | Discord                | We have done too many template code and so don't need to learn that  |
-| 3 | Configurations        | YML           | Application properties | We have done too many template code and so don't need to learn that  |
-| 3 | Database              | H2            | TBD                    | We have done too many template code and so don't need to learn that  |
+| 2 | Dependency Management | Gradle        | Maven                  | familiarity                                                           |
+| 3 | Code                  | Lombok        | Code template code     | We have done too many template code and so don't need to learn that   |
+| 3 | Communication Channel | Zoom          | Discord                |                                                                       |
+| 3 | Configurations        | YML           | Application properties | Liked this approach   |
+| 3 | Database              | H2            | TBD                    | Will look into it as the project moves on.   |
 
 ## Appendix
 
