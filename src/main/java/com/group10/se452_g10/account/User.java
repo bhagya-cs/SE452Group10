@@ -16,7 +16,7 @@ public abstract class User extends Account {
     protected String firstName;
     protected String lastName;
     protected long phoneNumber;
-    protected long address;
+    protected String address;
     protected long ssn;
     protected Date dob;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
