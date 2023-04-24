@@ -1,5 +1,7 @@
 package com.group10.se452_g10.course;
 
+import com.group10.se452_g10.account.Student;
+import com.group10.se452_g10.account.StudentRepo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -19,6 +21,10 @@ public class GpaService {
 
     @Autowired
     private GpaRepository gpaRepository;
+    @Autowired
+    private StudentRepo studentRepository;
+    @Autowired
+    private CourseRepository courseRepository;
 
     @GetMapping
     @Operation(summary = "Returns all the GPA in the database")
@@ -33,29 +39,31 @@ public class GpaService {
 
     @PostMapping("/queryByStudentId")
     @Operation(summary = "Query and list the GPA of all courses enrolled by the student.")
-    public List<GPA> queryByStudentId(long studentId) {
+    public List<GPA> queryByStudentId(long id) {
         log.traceEntry("Enter list");
-        var retval = gpaRepository.listCourseGpaByStudentId(studentId);
+        var retval = gpaRepository.listCourseGpaByStudentId(id);
         log.traceExit("Exit list", retval);
-        return gpaRepository.findAll();
+        return retval;
     }
 
     @PostMapping("/queryByCourseId")
     @Operation(summary = "Query and list the GPA of all students under this course.")
-    public List<GPA> queryByCourseId(long courseId) {
+    public List<GPA> queryByCourseId(long id) {
         log.traceEntry("Enter list");
-        var retval = gpaRepository.listGpaByCourseId(courseId);
+        var retval = gpaRepository.listGpaByCourseId(id);
         log.traceExit("Exit list", retval);
-        return gpaRepository.findAll();
+        return retval;
     }
 
     @PostMapping("/save")
     @Operation(summary = "Save the GPA and returns the GPA id")
-    public long save(GPA gpa) {
-        log.traceEntry("enter save", gpa);
-        gpaRepository.save(gpa);
-        log.traceExit("exit save", gpa);
-        return gpa.getId();
+    public long save(long studentId, long courseId, float grade, float gpa) {
+        log.traceEntry("enter save", studentId, courseId, grade, gpa);
+        Course course = courseRepository.findById(courseId).orElseThrow();
+        Student student = studentRepository.findById(studentId).orElseThrow();
+        GPA retval = gpaRepository.save(new GPA(course, student, grade, gpa));
+        log.traceExit("exit save");
+        return retval.getId();
     }
 
     @DeleteMapping("/delete")

@@ -1,8 +1,6 @@
 package com.group10.se452_g10.course;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import org.json.JSONArray;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +22,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @Transactional
-@Sql({"/data-course-test.sql"})
+@Sql({"/db-sql/test/data-course-test.sql"})
 class CourseServiceTest {
 
     @Autowired
     private MockMvc mockMvc;
     @Autowired
     private ObjectMapper objectMapper;
+    @Autowired
+    private CourseRepository courseRepository;
 
     @Test
     void testList() throws Exception {
@@ -78,23 +78,16 @@ class CourseServiceTest {
 
     @Test
     void testDelete() throws Exception {
-        String beforeContent = mockMvc.perform(get("/api/courses").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andReturn().getResponse().getContentAsString();
-        Gson gson = new Gson();
-        List<Course> beforeCourses = gson.fromJson(beforeContent, new TypeToken<List<Course>>(){}.getType());
-        int beforeSize = beforeCourses.size();
+        List<Course> beforeList = courseRepository.findAll();
+
+        Course newCourse = courseRepository.save(new Course("DEPT", "007", "DESC"));
 
         mockMvc.perform(delete("/api/courses/delete")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .param("id", String.valueOf(beforeCourses.stream().findAny().orElseThrow().getId())))
+                        .param("id", String.valueOf(newCourse.getId())))
                 .andExpect(status().isOk());
+        int afterSize = courseRepository.findAll().size();
 
-        String afterContent = mockMvc.perform(get("/api/courses").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andReturn().getResponse().getContentAsString();
-        int afterSize = new JSONArray(afterContent).length();
-
-        assertEquals(beforeSize - 1, afterSize);
+        assertEquals(beforeList.size(), afterSize);
     }
 }
