@@ -36,12 +36,12 @@ Will meet using Discord and Zoom. Will meet once a week on tuesday .
 
 ## Meeting Notes
 
-| # | Date      | Note                                                                                   | Participants                    |
-|--|-----------|----------------------------------------------------------------------------------------|---------------------------------|
-| 1 | 4.4.2023  | We decided our project scope and setup env.                                            | Ayyub, Jared, Srinivasa, Bhagya |
-| 2 | 4.8.2023  | We create basic project, and initial key features for each of the members of the team. | Ayyub, Jared, Srinivasa, Bhagya |
-| 3 | 4.15.2023 | Divide project into 4 modules, and reassign work for every team member.                | Ayyub, Jared, Srinivasa, Bhagya |
-| 4 | 4.22.2023 | Code-merge session and discussed foreign key implementation.                | Ayyub, Jared, Srinivasa, Bhagya |
+| #   | Date      | Note                                                                                   | Participants                    |
+|-----|-----------|----------------------------------------------------------------------------------------|---------------------------------|
+| 1   | 4.4.2023  | We decided our project scope and setup env.                                            | Ayyub, Jared, Srinivasa, Bhagya |
+| 2   | 4.8.2023  | We create basic project, and initial key features for each of the members of the team. | Ayyub, Jared, Srinivasa, Bhagya |
+| 3   | 4.15.2023 | Divide project into 4 modules, and reassign work for every team member.                | Ayyub, Jared, Srinivasa, Bhagya |
+| 4   | 4.22.2023 | Code-merge session and discussed foreign key implementation.                | Ayyub, Jared, Srinivasa, Bhagya |
 
 
 <br/>
