@@ -10,6 +10,10 @@ public interface TeacherRepo extends JpaRepository<Teacher, Long> {
 
 
 
+    public List<Teacher> findByAgeLessThanEqual(long age);
+
+    public List<Teacher> findByFirstName(String name);
+
 
 
 }
