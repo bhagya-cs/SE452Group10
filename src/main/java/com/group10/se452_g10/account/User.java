@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.Date;
-
+//Seperating User fields
 @EqualsAndHashCode(callSuper = true)
 @Data
 @MappedSuperclass
