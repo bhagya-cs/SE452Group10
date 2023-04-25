@@ -20,6 +20,14 @@ public abstract class User extends Account {
     protected long ssn;
     protected Date dob;
     protected String gender;
-    protected String guardian_name;
-    protected int guardian_number;
+
+
+    public User(){
+
+    }
+    public User(String firstName, String lastName, long age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
 }

@@ -1,6 +1,7 @@
 package com.group10.se452_g10.account;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.group10.se452_g10.course.Course;
 import io.swagger.v3.oas.annotations.Operation;
@@ -21,39 +22,28 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class TeacherService {
 
-
-
     @Autowired
-    private TeacherRepo repo;
-
-
-    @GetMapping
-    @Operation(summary = "Returns all the Teachers in the database")
-    @ApiResponse(responseCode = "200", description = "valid response",
-            content = {@Content(mediaType="application/json", schema=@Schema(implementation= Teacher.class))})
-    public List<Teacher> list(){
-        log.traceEntry("Enter list");
-        var retval = repo.findAll();
-        log.traceExit("Exit list", retval);
-        return repo.findAll();
+    private TeacherRepo teacherRepo;
+    public Teacher addTeacher(Teacher teachers){
+        return teacherRepo.save(teachers);
     }
 
-    @PostMapping("/save")
-    @Operation(summary = "Save the Course and returns the Teacher First name")
-    public String save(@RequestBody Teacher teach) {
-        log.traceEntry("enter save", teach);
-        repo.save(teach);
-        log.traceExit("exit save", teach);
-        return teach.getFirstName();
+    public List<Teacher> getTeachers(){
+
+        return teacherRepo.findAll();
     }
 
-    @DeleteMapping
-    @Operation(summary = "Delete the teacher")
-    public void delete(Long id) {
-        log.traceEntry("Enter delete", id);
-        repo.deleteById(id);
-        log.traceExit("Exit delete");
+    public Teacher getteaByID(long ID) {
+
+        Optional<Teacher> model=teacherRepo.findById(ID);
+
+        if (model.isPresent())
+        {
+            return model.get();
+        }
+        return null;
     }
+
 
 
 
