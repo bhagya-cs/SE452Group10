@@ -1,9 +1,6 @@
 package com.group10.se452_g10.account;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -13,6 +10,9 @@ import java.util.Date;
 @Data
 @MappedSuperclass
 public abstract class User extends Account {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Long id;
     protected String email;
     @Column(name = "first_name")
     protected String firstName;
@@ -22,8 +22,7 @@ public abstract class User extends Account {
     protected String address;
     protected long ssn;
     protected Date dob;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id;
+
     protected long age;
     protected String gender;
 
