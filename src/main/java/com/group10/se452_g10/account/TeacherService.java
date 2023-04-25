@@ -24,26 +24,31 @@ public class TeacherService {
 
     @Autowired
     private TeacherRepo teacherRepo;
-    public Teacher addTeacher(Teacher teachers){
-        return teacherRepo.save(teachers);
-    }
 
-    public List<Teacher> getTeachers(){
-
+    @GetMapping
+    @Operation(summary = "Returns all the Students in the database")
+    @ApiResponse(responseCode = "200", description = "valid response",
+            content = {@Content(mediaType="application/json", schema=@Schema(implementation= Teacher.class))})
+    public List<Teacher> list(){
+        log.traceEntry("Enter list");
+        var retval = teacherRepo.findAll();
+        log.traceExit("Exit list", retval);
         return teacherRepo.findAll();
     }
 
-    public Teacher getteaByID(long ID) {
-
-        Optional<Teacher> model=teacherRepo.findById(ID);
-
-        if (model.isPresent())
-        {
-            return model.get();
-        }
-        return null;
+    @PostMapping
+    public void save(@RequestBody Teacher stud) {
+        log.traceEntry("enter save", stud);
+        teacherRepo.save(stud);
+        log.traceExit("exit save", stud);
     }
 
+    @DeleteMapping
+    public void delete(Teacher stud) {
+        log.traceEntry("Enter delete", stud);
+        teacherRepo.delete( stud);
+        log.traceExit("Exit delete");
+    }
 
 
 
