@@ -88,7 +88,7 @@ class StudentEnrollmentServiceTest {
 
         // Save the new course into db and verify the status code.
 
-        mockMvc.perform(post("/api/student-enrollment/save")
+        mockMvc.perform(post("/api/student-enrollment")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(student)))
                 .andExpect(status().isOk());

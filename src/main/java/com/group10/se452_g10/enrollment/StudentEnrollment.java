@@ -15,6 +15,6 @@ public class StudentEnrollment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String StudentId;
-    private String CourseId;
+    private long StudentId;
+    private long CourseId;
 }

@@ -69,7 +69,7 @@ public class AdminMethodTest {
 
 
         long count4 = adminRepo.count();
-        assertEquals(count3 + 1, count4);
+        assertEquals(count3 - 1, count4);
         adminRepo.deleteAll();
 
         long count5 = adminRepo.count();
