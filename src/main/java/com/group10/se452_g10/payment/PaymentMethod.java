@@ -20,6 +20,8 @@ import java.time.LocalDate;
 })
 public class PaymentMethod {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -70,5 +72,19 @@ public class PaymentMethod {
 //        this.date = LocalDate.now();
 //    }
 
+
+    public class Building {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long building_Id;
+
+        private String address_line1;
+
+        private String address_line2;
+
+        private float numOfFloors;
+
+    }
 
 }

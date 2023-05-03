@@ -115,6 +115,7 @@ public class PaymentRecordTest {
         assertNotNull(updatedSave);
         assertEquals(savedCourseId, updatedSave.getCourseId());
         assertEquals(updatedCourseFee, updatedSave.getCourseFee());
+
     }
 
 
