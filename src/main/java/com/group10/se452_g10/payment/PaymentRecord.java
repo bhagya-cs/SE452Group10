@@ -12,12 +12,16 @@ import lombok.NonNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "payment_record")
-
 public class PaymentRecord {
 
     @Id
-//    @JoinColumn(name = "course_id",columnDefinition = "VARCHAR(50)")
-    private Long courseId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long table_id;
+
+
+    @OneToOne
+    @JoinColumn(name = "num",nullable = false,unique = true)
+    private Course courseId;
 
     @NonNull
     @Column(name = "course_fee",nullable = false)

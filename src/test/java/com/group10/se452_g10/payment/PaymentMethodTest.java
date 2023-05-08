@@ -29,7 +29,7 @@ public class PaymentMethodTest {
     private PaymentMethodRepository repository;
 
     @Autowired
-    StudentRepo studentRepo;
+    private StudentRepo studentRepo;
 
 //    @BeforeEach
 //    public void setup() {

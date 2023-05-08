@@ -40,7 +40,7 @@ public class PaymentRecordController {
     public PaymentRecord createPayment(@RequestBody PaymentRecord paymentRecord) {
         // create a new payment using the data from the paymentRequest
 //            PaymentRecord paymentRecord1 = new PaymentRecord(132L, 344F);
-        PaymentRecord paymentRecord1 = new PaymentRecord(paymentRecord.getCourseId(), paymentRecord.getCourseFee());
+        PaymentRecord paymentRecord1 = new PaymentRecord(1L,paymentRecord.getCourseId(), paymentRecord.getCourseFee());
 
         // save the payment to the database
         paymentRecordRepository.save(paymentRecord1);

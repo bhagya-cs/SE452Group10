@@ -73,18 +73,5 @@ public class PaymentMethod {
 //    }
 
 
-    public class Building {
-
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long building_Id;
-
-        private String address_line1;
-
-        private String address_line2;
-
-        private float numOfFloors;
-
-    }
 
 }

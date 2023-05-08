@@ -22,12 +22,15 @@ public class PaymentMethodController {
         return paymentMethodRepository.findAll();
     }
 
+
     @GetMapping("/{id}")
     public ResponseEntity<PaymentMethod> getPaymentMethodById(@PathVariable(value = "id") Long id) {
         PaymentMethod paymentMethod = paymentMethodRepository.findById(id)
                 .orElseThrow(() -> new Message("PaymentMethod not found for this id :: " + id));
         return ResponseEntity.ok().body(paymentMethod);
     }
+
+
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public static class Message extends RuntimeException{
         public Message(String s) {
@@ -43,7 +46,6 @@ public class PaymentMethodController {
         paymentMethodRepository.save(payment);
         // return the newly created payment object
         return payment;
-
 
     }
 
