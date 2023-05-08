@@ -18,7 +18,7 @@ The administrator will have overarching access as a debugger.
 | Member    | Feature    | Note                                                                                                                                                                                      |
 |-----------|------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ayyub     | Account    | For all account types which can be logged into this system including Admin, Teacher and Student. Providing service like account CRUD and login.<br />Data Entity: Admin, Teacher, Student |
-| Jared     | Course     | Course CRUD operation, students/teachers search course by key word(s).<br />Data Entity: Course                                                                                           |
+| Jared     | Course     | Course and GPA CRUD operation, students/teachers search course and GPA by key word(s).<br />Data Entity: Course, GPA                                                                      |
 | Bhagya    | Enrollment | Students enroll course to learn, teachers enroll course to teach. Also provide operation of dropping classes.<br />Data Entity: TeacherEnrollment, StudentEnrollment                      |
 | Srinivasa | Payment    | Add/remove payment methods, calculate the fee based on the student's enrollment of courses, load payment records.<br />Data Entity: PaymentMethod, PaymentRecord                          |
 

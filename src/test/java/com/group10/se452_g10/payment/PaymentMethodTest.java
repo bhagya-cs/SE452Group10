@@ -149,7 +149,7 @@ public class PaymentMethodTest {
         s1.setLastName("B34");
 
         studentRepo.save(s1);
-        Student s = studentRepo.findById("1").get();
+        Student s = studentRepo.findById(1L).get();
 
         paymentMethod.setStudent(s);
         paymentMethod.setDate(LocalDate.now());
@@ -181,7 +181,7 @@ public class PaymentMethodTest {
 //        s2.setId(1243334L);
         studentRepo.save(s2);
 
-        Student s3 = studentRepo.findById("1").get();
+        Student s3 = studentRepo.findById(1L).get();
 
         paymentMethod1.setStudent(s3);
 //        paymentMethod1.setStudent(s2);
