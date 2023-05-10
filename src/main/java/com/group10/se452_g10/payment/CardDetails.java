@@ -47,7 +47,4 @@ public class CardDetails {
     private String expYear;
 
 
-
-
-
 }

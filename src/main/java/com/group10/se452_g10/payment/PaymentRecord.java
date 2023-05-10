@@ -19,9 +19,6 @@ public class PaymentRecord {
     private Long table_id;
 
 
-    @OneToOne
-    @JoinColumn(name = "num",nullable = false,unique = true)
-    private Course courseId;
 
     @NonNull
     @Column(name = "course_fee",nullable = false)
