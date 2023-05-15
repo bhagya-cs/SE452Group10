@@ -1,6 +1,8 @@
 package com.group10.se452_g10.account;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -9,9 +11,11 @@ import java.util.List;
 public interface StudentRepo extends JpaRepository<Student, Long> {
 
 //
-    public List<Student> findByAgeLessThanEqual(long age);
+    @Query("select firstName , lastName , age from teachers where age<= :age")
+    public List<Student> findByAgeLessThanEqual(@Param("age")long age);
 
-    public List<Student> findByFirstName(String name);
+    @Query("SELECT * from students where firstName ILIKE %:name%")
+    public List<Student> findByFirstName(@Param("name") String name);
 
 
 }
