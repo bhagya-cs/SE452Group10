@@ -41,6 +41,8 @@ public class PaymentRecordTest {
     public void testCreationPaymentRecord() {
 //        Course course = new Course(1L,"cs","1","se");
 //        courseRepository.save(course);
+        courseRepository.deleteAll();
+        repository.deleteAll();
 
 
         PaymentRecord paymentRecord = new PaymentRecord(1L, 5678F);
@@ -109,6 +111,8 @@ public class PaymentRecordTest {
 //        List<Course> courseList = courseRepository.findAll();
 //
 //        Course c1= courseList.get(0);
+        courseRepository.deleteAll();
+        repository.deleteAll();
 
         PaymentRecord paymentRecord = new PaymentRecord(1L, 5678F);
 
@@ -117,9 +121,15 @@ public class PaymentRecordTest {
 
 
         Optional<PaymentRecord> verifiedPayment = repository.findById(paymentRecord.getTable_id());
-
         assertEquals(savedPaymentMethod.getTable_id(), verifiedPayment.get().getTable_id());
-        assertEquals(savedPaymentMethod.getCourseFee(), paymentRecord.getCourseFee());
+        assertEquals(savedPaymentMethod.getCourseFee(), verifiedPayment.get().getCourseFee());
+
+
+
+//        List<PaymentRecord> verifiedPayment = repository.findAll();
+//
+//        assertEquals(savedPaymentMethod.getTable_id(), verifiedPayment.get(0).getTable_id());
+//        assertEquals(savedPaymentMethod.getCourseFee(), verifiedPayment.get(0).getCourseFee());
 
     }
 
