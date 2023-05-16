@@ -1,5 +1,6 @@
 package com.group10.se452_g10.payment;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.group10.se452_g10.account.Student;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,6 +25,7 @@ public class CardDetails {
 
 
     @NonNull
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "stu_id",nullable = false)
     private Student student;

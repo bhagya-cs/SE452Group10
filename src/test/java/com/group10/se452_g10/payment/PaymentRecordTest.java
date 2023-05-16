@@ -1,56 +1,47 @@
 package com.group10.se452_g10.payment;
 
-import com.group10.se452_g10.account.Student;
-import com.group10.se452_g10.course.Course;
-import com.group10.se452_g10.course.CourseRepository;
-import org.aspectj.lang.annotation.Before;
-import org.hibernate.NonUniqueObjectException;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 @DataJpaTest
 @ActiveProfiles("test")
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class PaymentRecordTest {
 
 
     @Autowired
     private PaymentRecordRepository repository;
 
-    @Autowired
-    private CourseRepository courseRepository;
-
-
-
-    @Before("")
-    public void setup() {
-        // Perform setup tasks here
-
-
-    }
 
     @Test
+    @Transactional
     public void testCreationPaymentRecord() {
 //        Course course = new Course(1L,"cs","1","se");
 //        courseRepository.save(course);
-        courseRepository.deleteAll();
-        repository.deleteAll();
+//        courseRepository.deleteAll();
+//        repository.deleteAll();
 
 
-        PaymentRecord paymentRecord = new PaymentRecord(1L, 5678F);
+        PaymentRecord paymentRecord = new PaymentRecord();
+        paymentRecord.setId(1L);
+        paymentRecord.setTerm("2023");
+        paymentRecord.setCourseFee(3456F);
         long beforeCount = repository.count();
-         repository.save(paymentRecord);
+//        repository.save(paymentRecord);
 
         PaymentRecord paymentRecord1 = repository.save(paymentRecord);
-        assertNotNull(paymentRecord1.getTable_id());
+        assertNotNull(paymentRecord1.getId());
         var afterCount = repository.count();
         assertEquals(beforeCount + 1, afterCount);
 
@@ -59,7 +50,9 @@ public class PaymentRecordTest {
     @Test
     public void testPaymentRecordCreationWithNullValues() {
         try {
-            PaymentRecord paymentRecord = new PaymentRecord(1L,null);
+            PaymentRecord paymentRecord = new PaymentRecord();
+            paymentRecord.setTerm("2023");
+            paymentRecord.setCourseFee(null);
         } catch (NullPointerException e) {
             // expected exception was thrown, test passed
             assertEquals("courseFee is marked non-null but is null", e.getMessage());
@@ -69,11 +62,13 @@ public class PaymentRecordTest {
 
     @Test
     public void testDeletePaymentRecord() {
-//        Course course = new Course(234L,"cs","1","se");
-//
-//        courseRepository.save(course);
 
-        PaymentRecord paymentRecord = new PaymentRecord(1L, 5678F);
+//        courseRepository.deleteAll();
+        repository.deleteAll();
+
+        PaymentRecord paymentRecord = new PaymentRecord( );
+        paymentRecord.setTerm("2023");
+        paymentRecord.setCourseFee(5678F);
         PaymentRecord savedPaymentMethod = repository.save(paymentRecord);
 
         long count1 = repository.count();
@@ -84,7 +79,9 @@ public class PaymentRecordTest {
 //        Course course1 = new Course(23234L,"cs","1","st");
 //        courseRepository.save(course1);
 
-        PaymentRecord paymentRecord1 = new PaymentRecord(2L, 63834F);
+        PaymentRecord paymentRecord1 = new PaymentRecord();
+        paymentRecord1.setTerm("2024");
+        paymentRecord1.setCourseFee(63834F);
         PaymentRecord savedPaymentMethod1 = repository.save(paymentRecord1);
 
         long count3 = repository.count();
@@ -111,25 +108,22 @@ public class PaymentRecordTest {
 //        List<Course> courseList = courseRepository.findAll();
 //
 //        Course c1= courseList.get(0);
-        courseRepository.deleteAll();
+//        courseRepository.deleteAll();
         repository.deleteAll();
 
-        PaymentRecord paymentRecord = new PaymentRecord(1L, 5678F);
+        PaymentRecord paymentRecord = new PaymentRecord( );
+        paymentRecord.setTerm("2023");
+        paymentRecord.setCourseFee(5678F);
+
 
         PaymentRecord savedPaymentMethod = repository.save(paymentRecord);
 
 
 
-        Optional<PaymentRecord> verifiedPayment = repository.findById(paymentRecord.getTable_id());
-        assertEquals(savedPaymentMethod.getTable_id(), verifiedPayment.get().getTable_id());
+        Optional<PaymentRecord> verifiedPayment = repository.findById(paymentRecord.getId());
+        assertEquals(savedPaymentMethod.getTerm(), verifiedPayment.get().getTerm());
         assertEquals(savedPaymentMethod.getCourseFee(), verifiedPayment.get().getCourseFee());
 
-
-
-//        List<PaymentRecord> verifiedPayment = repository.findAll();
-//
-//        assertEquals(savedPaymentMethod.getTable_id(), verifiedPayment.get(0).getTable_id());
-//        assertEquals(savedPaymentMethod.getCourseFee(), verifiedPayment.get(0).getCourseFee());
 
     }
 
@@ -141,22 +135,25 @@ public class PaymentRecordTest {
 //        Course course1 = new Course(1L,"cs","1","se");
 //
 //        courseRepository.save(course1);
-        PaymentRecord paymentRecord = new PaymentRecord(1L, 5678F);
+        PaymentRecord paymentRecord = new PaymentRecord();
+        paymentRecord.setTerm("2024");
+        paymentRecord.setCourseFee(5678F);
 
 
         PaymentRecord savedCourse = repository.save(paymentRecord);
-        Long savedTableId = savedCourse.getTable_id();
+        Long savedTableId = savedCourse.getId();
 //        Course course2 = new Course(savedCourseId,"cs","1","se");
 
 
         PaymentRecord paymentRecord1 = new PaymentRecord();
-        paymentRecord1.setTable_id(savedTableId);
+        paymentRecord.setTerm("2024");
+        paymentRecord1.setId(savedTableId);
 //        paymentRecord1.setCourseId(savedCourseId);
         paymentRecord1.setCourseFee(200.0f);
         Float updatedCourseFee = 200.0f;
         PaymentRecord updatedSave = repository.save(paymentRecord1);
         assertNotNull(updatedSave);
-        assertEquals(savedTableId, updatedSave.getTable_id());
+        assertEquals(savedTableId, updatedSave.getId());
         assertEquals(updatedCourseFee, updatedSave.getCourseFee());
 
     }

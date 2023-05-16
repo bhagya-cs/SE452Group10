@@ -16,12 +16,18 @@ public class PaymentRecord {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long table_id;
+    private Long id;
 
 
 
     @NonNull
+    @Column(nullable = false,unique = true)
+    private String term;
+
+    @NonNull
     @Column(name = "course_fee",nullable = false)
     private Float courseFee;
+
+
 
 }

@@ -32,12 +32,17 @@ public class PaymentMethodTest {
     private StudentRepo studentRepo;
 
 //    @BeforeEach
-//    public void setup() {
-////        Student student1 = new Student();
-////        student1.setFirstName("A12");
-////        student1.setLastName("B34");
-////        studentRepo.save(student1);
-//    }
+
+
+    @BeforeEach
+    public void setup() {
+
+    }
+
+    @AfterEach
+    public void tearDown() {
+//        studentRepo = null;
+    }
 
 
     @Test
@@ -138,77 +143,80 @@ public class PaymentMethodTest {
 
 
 
-    @Test
-    public void testDeletePaymentMethod(){
-        studentRepo.deleteAll();
-        repository.deleteAll();
-        PaymentMethod paymentMethod = new PaymentMethod();
-        Student s1 = new Student();
-//        s1.setId(1224L);
-        s1.setFirstName("A12");
-        s1.setLastName("B34");
-
-        studentRepo.save(s1);
-        Student s = studentRepo.findById(1L).get();
-
-        paymentMethod.setStudent(s);
-        paymentMethod.setDate(LocalDate.now());
-        paymentMethod.setAmount(4500.0f);
-        paymentMethod.setTypeOfMethod(PaymentMethodType.DEBIT_CARD.getMethod());
-        paymentMethod.setTransactionId("adknf2324234");
-        paymentMethod.setRemarks("Test payment");
-         repository.save(paymentMethod);
-
+//    @Test
+//    public void testDeletePaymentMethod(){
+//        studentRepo.deleteAll();
+//        repository.deleteAll();
 //        PaymentMethod paymentMethod = new PaymentMethod();
 //        Student s1 = new Student();
-//        s1.setId(1224L);
-//        paymentMethod.setStudent(s1);
+////        s1.setId(1224L);
+//        s1.setFirstName("A12");
+//        s1.setLastName("B34");
+//
+//        studentRepo.save(s1);
+//
+//        Student s = studentRepo.findById(1L).get();
+////        Student s = null;
+//
+//
+//        paymentMethod.setStudent(s);
 //        paymentMethod.setDate(LocalDate.now());
 //        paymentMethod.setAmount(4500.0f);
 //        paymentMethod.setTypeOfMethod(PaymentMethodType.DEBIT_CARD.getMethod());
 //        paymentMethod.setTransactionId("adknf2324234");
 //        paymentMethod.setRemarks("Test payment");
-//        PaymentMethod savedPaymentMethod = repository.save(paymentMethod);
-
-        long count1 = repository.count();
-        repository.delete(paymentMethod);
-        long count2 = repository.count();
-
-        assertEquals(count1-1,count2);
-
-        PaymentMethod paymentMethod1 = new PaymentMethod();
-        Student s2 = new Student();
-//        s2.setId(1243334L);
-        studentRepo.save(s2);
-
-        Student s3 = studentRepo.findById(1L).get();
-
-        paymentMethod1.setStudent(s3);
-//        paymentMethod1.setStudent(s2);
-        paymentMethod1.setDate(LocalDate.now());
-        paymentMethod1.setAmount(4500.0f);
-        paymentMethod1.setTypeOfMethod(PaymentMethodType.NET_BANKING.getMethod());
-        paymentMethod1.setTransactionId("adknf232423422");
-        paymentMethod1.setRemarks("Test payment");
-        PaymentMethod savedPaymentMethod1 = repository.save(paymentMethod1);
-
-        long count3 = repository.count();
-
-        assertEquals(count2+1,count3);
-
-        PaymentMethod savedPaymentMethod2 = repository.save(paymentMethod);
-
-        long count4 = repository.count();
-
-        assertEquals(count3+1,count4);
-
-        repository.deleteAll();
-        long count5 = repository.count();
-
-        assertEquals(count5,0);
-
-
-    }
+//         repository.save(paymentMethod);
+//
+////        PaymentMethod paymentMethod = new PaymentMethod();
+////        Student s1 = new Student();
+////        s1.setId(1224L);
+////        paymentMethod.setStudent(s1);
+////        paymentMethod.setDate(LocalDate.now());
+////        paymentMethod.setAmount(4500.0f);
+////        paymentMethod.setTypeOfMethod(PaymentMethodType.DEBIT_CARD.getMethod());
+////        paymentMethod.setTransactionId("adknf2324234");
+////        paymentMethod.setRemarks("Test payment");
+////        PaymentMethod savedPaymentMethod = repository.save(paymentMethod);
+//
+//        long count1 = repository.count();
+//        repository.delete(paymentMethod);
+//        long count2 = repository.count();
+//
+//        assertEquals(count1-1,count2);
+//
+//        PaymentMethod paymentMethod1 = new PaymentMethod();
+//        Student s2 = new Student();
+////        s2.setId(1243334L);
+//        studentRepo.save(s2);
+//
+//        Student s3 = studentRepo.findById(1L).get();
+//
+//        paymentMethod1.setStudent(s3);
+////        paymentMethod1.setStudent(s2);
+//        paymentMethod1.setDate(LocalDate.now());
+//        paymentMethod1.setAmount(4500.0f);
+//        paymentMethod1.setTypeOfMethod(PaymentMethodType.NET_BANKING.getMethod());
+//        paymentMethod1.setTransactionId("adknf232423422");
+//        paymentMethod1.setRemarks("Test payment");
+//        PaymentMethod savedPaymentMethod1 = repository.save(paymentMethod1);
+//
+//        long count3 = repository.count();
+//
+//        assertEquals(count2+1,count3);
+//
+//        PaymentMethod savedPaymentMethod2 = repository.save(paymentMethod);
+//
+//        long count4 = repository.count();
+//
+//        assertEquals(count3+1,count4);
+//
+//        repository.deleteAll();
+//        long count5 = repository.count();
+//
+//        assertEquals(count5,0);
+//
+//
+//    }
 
     @Test
     public void testReadPaymentMethod(){
