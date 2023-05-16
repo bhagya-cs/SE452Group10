@@ -14,7 +14,7 @@ public interface StudentRepo extends JpaRepository<Student, Long> {
     @Query("select firstName , lastName , age from teachers where age<= :age")
     public List<Student> findByAgeLessThanEqual(@Param("age")long age);
 
-    @Query("SELECT * from students where firstName ILIKE %:name%")
+    //@Query("SELECT * from students where firstName ILIKE %:name%")
     public List<Student> findByFirstName(@Param("name") String name);
 
 
