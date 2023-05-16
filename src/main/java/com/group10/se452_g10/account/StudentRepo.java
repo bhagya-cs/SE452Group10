@@ -13,7 +13,9 @@ public interface StudentRepo extends JpaRepository<Student, Long> {
 
 //
 
-    List<Student> findByPersonLastName(String lastName);
+
+//    @Query("SELECT c FROM students c WHERE c.lastName ILIKE %:keyword%" )
+//    public List<Student> findByLastName(@Param("name")String name);
 
     Optional<User> findByUsername(String username);
 
