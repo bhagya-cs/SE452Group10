@@ -26,7 +26,7 @@ public class TeacherService {
     private TeacherRepo teacherRepo;
 
     @GetMapping
-    @Operation(summary = "Returns all the Students in the database")
+    @Operation(summary = "Returns all the Teachers in the database")
     @ApiResponse(responseCode = "200", description = "valid response",
             content = {@Content(mediaType="application/json", schema=@Schema(implementation= Teacher.class))})
     public List<Teacher> list(){

@@ -1,6 +1,9 @@
 package com.group10.se452_g10.account;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -13,6 +16,10 @@ public abstract class User extends Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
+
+    @NotBlank
+    @Size(max = 50)
+    @Email
     protected String email;
     @Column(name = "first_name")
     protected String firstName;
