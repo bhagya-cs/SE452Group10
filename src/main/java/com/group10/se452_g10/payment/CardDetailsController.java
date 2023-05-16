@@ -22,7 +22,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("card_details")
-@Tag(name = "Card Details",description = "Everything about cards")
+@Tag(name = "CardDetails",description = "Everything about cards")
 @Log4j2
 public class CardDetailsController {
 
