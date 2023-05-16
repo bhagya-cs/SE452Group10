@@ -13,11 +13,14 @@ public interface StudentRepo extends JpaRepository<Student, Long> {
 
 //
 
+    List<Student> findByPersonLastName(String lastName);
+
     Optional<User> findByUsername(String username);
 
     Boolean existsByUsername(String username);
 
     Boolean existsByEmail(String email);
+
     @Query("select firstName , lastName , age from teachers where age<= :age")
     public List<Student> findByAgeLessThanEqual(@Param("age")long age);
 
