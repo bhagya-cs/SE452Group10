@@ -52,6 +52,12 @@ public class TeacherService {
         return teacherRepo.findById(teacherId);
     }
 
+    @RequestMapping(value="/findteacher", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Teacher> findByFirstName(@RequestParam("firstName") String name) {
+        return teacherRepo.findByFirstName(name);
+    }
+
 
 
 
