@@ -8,14 +8,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+
 
 @Data
 @MappedSuperclass
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Builder
+
 public abstract class Account {
 
     @Id
