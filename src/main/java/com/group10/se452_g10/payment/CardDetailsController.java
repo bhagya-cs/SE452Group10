@@ -83,7 +83,6 @@ public class CardDetailsController {
             @ApiResponse(responseCode = "200", description = "Card details record found"),
     })
     public CardDetails createCardDetail(@RequestBody CardDetails cardDetails,Long student_id) {
-        // create a new payment using the data from the paymentRequest
 
         long beforeCount = cardDetailsRepository.count();
         logger.info("Creating card details record");
@@ -93,14 +92,12 @@ public class CardDetailsController {
                 .orElseThrow(() ->  new Message("Student not found for this id :: " + student_id) );
         logger.info("Student found");
         cardDetails1.setStudent(student);
-//        cardDetails1.setStudent(cardDetails.getStudent());
         cardDetails1.setType(cardDetails.getType());
         cardDetails1.setExpMonth(cardDetails.getExpMonth());
         cardDetails1.setNumber(cardDetails.getNumber());
         cardDetails1.setExpYear(cardDetails.getExpYear());
 
 
-        // save the payment to the database
         cardDetailsRepository.save(cardDetails1);
         long afterCount = cardDetailsRepository.count();
 
@@ -135,8 +132,7 @@ public class CardDetailsController {
         var list = cardDetailsRepository.findAll();
         CardDetails result= null;
         for(CardDetails cardDetails : list){
-//            String a = cardDetails.getId();
-//            String b = term.toLowerCase();
+
             if(cardDetails.getId().equals(id)){
                 cardDetailsRepository.deleteById(  cardDetails.getId());
                 logger.info("Record deleted!");
@@ -157,7 +153,7 @@ public class CardDetailsController {
             @ApiResponse(responseCode = "500",description = "Card details record not found to update")
     })
     public Object updatePayment(@RequestBody CardDetails cardDetails1,Long student_id){
-//        PaymentMethod paymentMethod2 =paymentMethodRepository.findById(id);
+
 
 
         logger.info("Updating card details");
@@ -165,8 +161,7 @@ public class CardDetailsController {
 
         CardDetails result= null;
         for(CardDetails cardDetails : list){
-//            String a = cardDetails.getId();
-//            String b = term.toLowerCase();
+
             if(cardDetails.getId().equals(cardDetails1.getId())){
 
 
@@ -174,7 +169,7 @@ public class CardDetailsController {
                         .orElseThrow(() ->  new Message("Student not found for this id :: " + student_id) );
                 logger.info("Student found");
                 cardDetails.setStudent(student);
-//        cardDetails1.setStudent(cardDetails.getStudent());
+
                 cardDetails.setType(cardDetails1.getType());
                 cardDetails.setExpMonth(cardDetails1.getExpMonth());
                 cardDetails.setNumber(cardDetails1.getNumber());

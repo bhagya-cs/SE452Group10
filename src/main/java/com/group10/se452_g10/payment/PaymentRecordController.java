@@ -86,19 +86,14 @@ public class PaymentRecordController {
             @ApiResponse(responseCode = "400", description = "Invalid URL")
     })
     public PaymentRecord createPayment(@RequestBody PaymentRecord paymentRecord) {
-        // create a new payment using the data from the paymentRequest
-//            PaymentRecord paymentRecord1 = new PaymentRecord(132L, 344F);
+
         PaymentRecord paymentRecord1 = new PaymentRecord();
         paymentRecord1.setTerm(paymentRecord.getTerm());
         paymentRecord1.setCourseFee(paymentRecord.getCourseFee());
 
-
-
-//        PaymentMethod payment = new PaymentMethod(paymentMethodRequest);
-
         long beforeCount = paymentRecordRepository.count();
         logger.info("Saving payment");
-        // save the payment to the database
+
 
         paymentRecordRepository.save(paymentRecord1);
 
@@ -148,7 +143,7 @@ public class PaymentRecordController {
             @ApiResponse(responseCode = "500",description = "Fee record not found to update")
     })
     public Object updatePayment(@PathVariable String term,Float fee){
-//        PaymentMethod paymentMethod2 =paymentMethodRepository.findById(id);
+
 
 
         var list = paymentRecordRepository.findAll();

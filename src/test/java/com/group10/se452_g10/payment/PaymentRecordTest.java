@@ -27,18 +27,13 @@ public class PaymentRecordTest {
     @Test
     @Transactional
     public void testCreationPaymentRecord() {
-//        Course course = new Course(1L,"cs","1","se");
-//        courseRepository.save(course);
-//        courseRepository.deleteAll();
-//        repository.deleteAll();
-
 
         PaymentRecord paymentRecord = new PaymentRecord();
         paymentRecord.setId(1L);
         paymentRecord.setTerm("2023");
         paymentRecord.setCourseFee(3456F);
         long beforeCount = repository.count();
-//        repository.save(paymentRecord);
+
 
         PaymentRecord paymentRecord1 = repository.save(paymentRecord);
         assertNotNull(paymentRecord1.getId());
@@ -76,8 +71,7 @@ public class PaymentRecordTest {
 
         long count2 = repository.count();
         assertEquals(count1 - 1, count2);
-//        Course course1 = new Course(23234L,"cs","1","st");
-//        courseRepository.save(course1);
+
 
         PaymentRecord paymentRecord1 = new PaymentRecord();
         paymentRecord1.setTerm("2024");
@@ -102,13 +96,6 @@ public class PaymentRecordTest {
     @Test
     public void testReadPaymentRecord() {
 
-//        Course course1 = new Course(234L,"cs","1","se");
-//
-//        courseRepository.save(course1);
-//        List<Course> courseList = courseRepository.findAll();
-//
-//        Course c1= courseList.get(0);
-//        courseRepository.deleteAll();
         repository.deleteAll();
 
         PaymentRecord paymentRecord = new PaymentRecord( );
@@ -131,10 +118,7 @@ public class PaymentRecordTest {
 
     @Test
     public void testUpdatePaymentRecord() {
-//
-//        Course course1 = new Course(1L,"cs","1","se");
-//
-//        courseRepository.save(course1);
+
         PaymentRecord paymentRecord = new PaymentRecord();
         paymentRecord.setTerm("2024");
         paymentRecord.setCourseFee(5678F);
@@ -142,13 +126,13 @@ public class PaymentRecordTest {
 
         PaymentRecord savedCourse = repository.save(paymentRecord);
         Long savedTableId = savedCourse.getId();
-//        Course course2 = new Course(savedCourseId,"cs","1","se");
+
 
 
         PaymentRecord paymentRecord1 = new PaymentRecord();
         paymentRecord.setTerm("2024");
         paymentRecord1.setId(savedTableId);
-//        paymentRecord1.setCourseId(savedCourseId);
+
         paymentRecord1.setCourseFee(200.0f);
         Float updatedCourseFee = 200.0f;
         PaymentRecord updatedSave = repository.save(paymentRecord1);

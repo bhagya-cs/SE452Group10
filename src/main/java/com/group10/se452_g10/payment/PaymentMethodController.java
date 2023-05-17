@@ -40,8 +40,6 @@ public class PaymentMethodController {
     Logger logger = LoggerFactory.getLogger(Se452Group10Application.class);
 
 
-//    @Value("${environment}")
-//    private String env;
 
     @GetMapping
     @Operation(summary = "Get all Payments")
@@ -168,7 +166,7 @@ public class PaymentMethodController {
             @ApiResponse(responseCode = "400",description = "No payment record found with the given id")
     })
     public Object deletePayment(@PathVariable long id){
-//        log.traceEntry("Entry Delete Payment",id);
+
         logger.info("Deleting the payment record with :"+ id);
         Optional<PaymentMethod> repo = Optional.ofNullable(paymentMethodRepository.findById(id));
 
@@ -177,7 +175,6 @@ public class PaymentMethodController {
             logger.info("Payment record deleted");
             return "PAYMENT RECORD DELETED: "+id;
 
-//            log.traceExit();
         } else {
             logger.error("No record found to delete");
             throw new Message( "No record found to delete.");
@@ -194,7 +191,7 @@ public class PaymentMethodController {
             @ApiResponse(responseCode = "500",description = "Payment record not found to update")
     })
     public Object updatePayment(@PathVariable long id,@RequestBody PaymentMethod paymentMethod){
-//        PaymentMethod paymentMethod2 =paymentMethodRepository.findById(id);
+
         Optional<PaymentMethod> paymentsOptional2 = Optional.ofNullable(paymentMethodRepository.findById(id));
         logger.info("Update Payment record"+id);
         if(paymentsOptional2.isPresent()){
