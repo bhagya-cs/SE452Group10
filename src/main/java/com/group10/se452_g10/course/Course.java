@@ -15,10 +15,7 @@ public class Course {
     private Long id;
 
     private String dept;
-
-    @Column(unique = true, nullable = false)
     private String num;
-
     private String name;
 
     @Column(name = "academic_year")
