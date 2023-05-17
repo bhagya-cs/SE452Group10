@@ -21,9 +21,16 @@ public class Course {
 
     private String name;
 
-    public Course(String dept, String num, String name) {
+    @Column(name = "academic_year")
+    private int year;
+    @Enumerated(EnumType.STRING)
+    private Quarter quarter;
+
+    public Course(String dept, String num, String name, int year, Quarter quarter) {
         this.dept = dept;
         this.num = num;
         this.name = name;
+        this.year = year;
+        this.quarter = quarter;
     }
 }

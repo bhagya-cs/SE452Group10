@@ -75,3 +75,8 @@ Working code (Milestone 2):
 ![img_2.png](src/main/resources/img/img_2.png)
 
 ![img_3.png](src/main/resources/img/img_3.png)
+
+Working code (Milestone 3):
+
+![image_docker](src/main/resources/img/img_docker.png)
+![image_docker-hub](src/main/resources/img/img_docker-hub.png)
